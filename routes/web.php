@@ -64,12 +64,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::middleware('can:asUser')->group(function () {
         Route::post('diagnosis', [DiagnosisController::class, 'diagnosis'])
-            // ->middleware('can:hasUserProfile')
+            ->middleware('can:hasUserProfile')
             ->name('user.diagnosis');
         Route::put('edit-profile', [\App\Http\Controllers\UserProfileController::class, 'updateUser'])->name('update-profile');
         Route::delete('histori-diagnosis-user', [\App\Http\Controllers\UserController::class, 'historiDiagnosis'])->name('histori-diagnosis-user.delete');
         Route::middleware('check.direct.access')->group(function () {
-            // Route::middleware('can:hasUserProfile')->group(function () {
+            Route::middleware('can:hasUserProfile')->group(function () {
                 Route::get('get-gejala', [UserController::class, 'getGejala'])->name('get-gejala');
                 Route::get('detail-diagnosis', [UserController::class, 'detailDiagnosis'])->name('detail-diagnosis');
                 Route::get('chart-diagnosis-penyakit', [UserController::class, 'chartDiagnosisPenyakit'])->name('chart-diagnosis-penyakit');
@@ -80,6 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('edit-profile/lokasi/kota/{id}', [\App\Http\Controllers\KotaProvinsiController::class, 'indexCity'])->name('kota');
         });
     });
+});
 
 
 Route::post('/auth/google', [SocialAuthController::class, 'redirectToProvider'])->name('google');

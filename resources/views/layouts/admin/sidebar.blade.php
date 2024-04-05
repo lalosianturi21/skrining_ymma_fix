@@ -14,7 +14,7 @@
         </li>
         <li class="nav-item {{ request()->is('admin/penyakit*') ? 'active' : '' }}">
             <a href="{{ route('admin.penyakit') }}"><i class="fas fa-medkit"></i>
-                <span>Penyakit</span>
+                <span>Solusi</span>
             </a>
         </li>
         <li class="nav-item {{ request()->is('admin/gejala*') ? 'active' : '' }}">

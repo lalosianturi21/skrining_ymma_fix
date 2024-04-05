@@ -40,7 +40,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Halaman Penyakit</h1>
+            <h1>Halaman Solusi</h1>
         </div>
         <div class="section-body">
             <div class="pb-4">

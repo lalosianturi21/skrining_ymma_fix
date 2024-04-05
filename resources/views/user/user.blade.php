@@ -90,7 +90,7 @@
 @push('scriptPerPage')
     <script type="text/javascript">
         const isUser = @json(Auth::check() && Auth::user()->email_verified_at != null && Gate::check('asUser'));
-        // const hasUserProfile = @json(Auth::user()->profile->id ?? false);
+        const hasUserProfile = @json(Auth::user()->profile->id ?? false);
         let login = @json(session('success') ?? false);
         const csrfToken = '{{ csrf_token() }}';
         const penyakitImage = @json($penyakit);

@@ -46,8 +46,8 @@ class AuthServiceProvider extends ServiceProvider
                 })->exists();
         });
 
-        // Gate::define('hasUserProfile', function (User $user) {
-        //     return UserProfile::where('user_id', $user->id)->exists();
-        // });
+        Gate::define('hasUserProfile', function (User $user) {
+            return UserProfile::where('user_id', $user->id)->exists();
+        });
     }
 }

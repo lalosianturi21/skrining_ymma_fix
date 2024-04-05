@@ -335,22 +335,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                     window.location.href = "/login";
                 }
             })
-        // } else if (!hasUserProfile) {
-        //     Swal.fire({
-        //         title: 'Anda belum melengkapi profil!',
-        //         text: 'Silahkan lengkapi profil terlebih dahulu untuk melakukan diagnosis',
-        //         icon: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonColor: '#3085d6',
-        //         cancelButtonColor: '#d33',
-        //         confirmButtonText: 'Lengkapi Profil',
-        //         cancelButtonText: 'Batal',
-        //         reverseButtons: true
-        //     }).then((result) => {
-        //         if (result.isConfirmed) {
-        //             modalEditProfileInstance.show();
-        //         }
-        //     });
+        } else if (!hasUserProfile) {
+            Swal.fire({
+                title: 'Anda belum melengkapi profil!',
+                text: 'Silahkan lengkapi profil terlebih dahulu untuk melakukan diagnosis',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Lengkapi Profil',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    modalEditProfileInstance.show();
+                }
+            });
         } else {
             function ajaxRequestToDiagnosis(element, jawaban, namaUser, umur, jenisKelamin, alamatKtp, alamatDomisili, nikSerumah) {
                 return $.ajax({
